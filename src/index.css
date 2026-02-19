@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --color-royal-purple: #6C4AB6;
+  --color-royal-purple-dark: #5A3DA0;
+  --color-royal-purple-light: #7E5CC8;
+  --color-midnight-blue: #2D2A4A;
+  --color-midnight-blue-deep: #1F1D38;
+  --color-soft-lavender: #D4C2FC;
+  --color-soft-lavender-light: #E8DEFF;
+  --color-warm-grey: #B0A8B9;
+  --color-off-white: #F2F2F2;
+  --color-dark-charcoal: #1E1E1E;
+  --color-emerald-green: #38A169;
+  --color-emerald-green-dark: #2F8F5B;
+  --color-soft-red: #E57373;
+
+  --font-heading: "DM Serif Display", serif;
+  --font-body: "Lato", sans-serif;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-dark-charcoal);
+  background-color: var(--color-off-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-midnight-blue-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-royal-purple);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-royal-purple-light);
+}
+
+/* Pulsing animation for scarcity badge */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(56, 161, 105, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(56, 161, 105, 0.7);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Gradient animation for hero background */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Counter animation */
+@keyframes count-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.animate-count-pulse {
+  animation: count-pulse 1s ease-in-out;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-royal-purple);
+  color: white;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-royal-purple);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
