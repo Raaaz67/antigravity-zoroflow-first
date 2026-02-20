@@ -14,6 +14,7 @@ const hearAboutOptions = [
     'Google',
     'LinkedIn',
     'Referral from friend/colleague',
+    'Email',
     'Other',
 ]
 
