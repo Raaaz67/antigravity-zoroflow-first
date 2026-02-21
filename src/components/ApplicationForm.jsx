@@ -46,9 +46,8 @@ export default function ApplicationForm() {
             } else {
                 alert('Something went wrong. Please try again or email me directly.')
             }
-        } catch {
-            // Fallback: show success anyway for demo purposes
-            setSubmitted(true)
+        } catch (error) {
+            alert("Check your internet connection and try again, or email me directly at raaz@zoroflow.com .");
         }
     }
 
